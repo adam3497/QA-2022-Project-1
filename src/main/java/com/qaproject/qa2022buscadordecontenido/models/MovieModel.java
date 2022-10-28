@@ -8,19 +8,19 @@ import java.util.ArrayList;
 public class MovieModel extends MediaObject{
 
     private String title;
-    private String originalTitle;
-    private String releaseDate;
+    private String original_title;
+    private String release_date;
     private boolean video;
 
-    public MovieModel(boolean adult, String backdropPath, int id, String originalLanguage,
-                      String overview, String posterPath, String mediaType, ArrayList<Integer> genreIds,
-                      int popularity, int voteAverage, int voteCount, String title, String originalTitle,
-                      String releaseDate, boolean video) {
-        super(adult, backdropPath, id, originalLanguage, overview, posterPath, mediaType, genreIds, popularity,
-                voteAverage, voteCount);
+    public MovieModel(boolean adult, String backdrop_path, int id, String original_language,
+                      String overview, String poster_path, String media_type, ArrayList<Integer> genre_ids,
+                      int popularity, int vote_average, int vote_count, String title, String original_title,
+                      String release_date, boolean video) {
+        super(adult, backdrop_path, id, original_language, overview, poster_path, media_type, genre_ids,
+                popularity, vote_average, vote_count);
         this.title = title;
-        this.originalTitle = originalTitle;
-        this.releaseDate = releaseDate;
+        this.original_title = original_title;
+        this.release_date = release_date;
         this.video = video;
     }
 
@@ -32,20 +32,20 @@ public class MovieModel extends MediaObject{
         this.title = title;
     }
 
-    public String getOriginalTitle() {
-        return originalTitle;
+    public String getOriginal_title() {
+        return original_title;
     }
 
-    public void setOriginalTitle(String originalTitle) {
-        this.originalTitle = originalTitle;
+    public void setOriginal_title(String original_title) {
+        this.original_title = original_title;
     }
 
-    public String getReleaseDate() {
-        return releaseDate;
+    public String getRelease_date() {
+        return release_date;
     }
 
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
+    public void setRelease_date(String release_date) {
+        this.release_date = release_date;
     }
 
     public boolean isVideo() {
@@ -60,8 +60,8 @@ public class MovieModel extends MediaObject{
     public String toString() {
         return super.toString().replace("}", "") +
                 ", title='" + title + '\'' +
-                ", originalTitle='" + originalTitle + '\'' +
-                ", releaseDate='" + releaseDate + '\'' +
+                ", originalTitle='" + original_title + '\'' +
+                ", releaseDate='" + release_date + '\'' +
                 ", video=" + video +
                 "} ";
     }

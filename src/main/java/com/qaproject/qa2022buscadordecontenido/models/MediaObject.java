@@ -13,31 +13,31 @@ import java.util.ArrayList;
 public class MediaObject {
     // Attributes and Methods shared between Movies and Tv Shows
     protected boolean adult;
-    protected String backdropPath;
+    protected String backdrop_path;
     protected int id;
-    protected String originalLanguage;
+    protected String original_language;
     protected String overview;
-    protected String posterPath;
-    protected String mediaType;
-    protected ArrayList<Integer> genreIds;
+    protected String poster_path;
+    protected String media_type;
+    protected ArrayList<Integer> genre_ids;
     protected int popularity;
-    protected int voteAverage;
-    protected int voteCount;
+    protected int vote_average;
+    protected int vote_count;
 
-    public MediaObject(boolean adult, String backdropPath, int id, String originalLanguage,
-                       String overview, String posterPath, String mediaType, ArrayList<Integer> genreIds,
-                       int popularity, int voteAverage, int voteCount) {
+    public MediaObject(boolean adult, String backdrop_path, int id, String original_language,
+                       String overview, String poster_path, String media_type, ArrayList<Integer> genre_ids,
+                       int popularity, int vote_average, int vote_count) {
         this.adult = adult;
-        this.backdropPath = backdropPath;
+        this.backdrop_path = backdrop_path;
         this.id = id;
-        this.originalLanguage = originalLanguage;
+        this.original_language = original_language;
         this.overview = overview;
-        this.posterPath = posterPath;
-        this.mediaType = mediaType;
-        this.genreIds = genreIds;
+        this.poster_path = poster_path;
+        this.media_type = media_type;
+        this.genre_ids = genre_ids;
         this.popularity = popularity;
-        this.voteAverage = voteAverage;
-        this.voteCount = voteCount;
+        this.vote_average = vote_average;
+        this.vote_count = vote_count;
     }
 
     public boolean isAdult() {
@@ -48,12 +48,12 @@ public class MediaObject {
         this.adult = adult;
     }
 
-    public String getBackdropPath() {
-        return backdropPath;
+    public String getBackdrop_path() {
+        return backdrop_path;
     }
 
-    public void setBackdropPath(String backdropPath) {
-        this.backdropPath = backdropPath;
+    public void setBackdrop_path(String backdrop_path) {
+        this.backdrop_path = backdrop_path;
     }
 
     public int getId() {
@@ -64,12 +64,12 @@ public class MediaObject {
         this.id = id;
     }
 
-    public String getOriginalLanguage() {
-        return originalLanguage;
+    public String getOriginal_language() {
+        return original_language;
     }
 
-    public void setOriginalLanguage(String originalLanguage) {
-        this.originalLanguage = originalLanguage;
+    public void setOriginal_language(String original_language) {
+        this.original_language = original_language;
     }
 
     public String getOverview() {
@@ -80,28 +80,28 @@ public class MediaObject {
         this.overview = overview;
     }
 
-    public String getPosterPath() {
-        return posterPath;
+    public String getPoster_path() {
+        return poster_path;
     }
 
-    public void setPosterPath(String posterPath) {
-        this.posterPath = posterPath;
+    public void setPoster_path(String poster_path) {
+        this.poster_path = poster_path;
     }
 
-    public String getMediaType() {
-        return mediaType;
+    public String getMedia_type() {
+        return media_type;
     }
 
-    public void setMediaType(String mediaType) {
-        this.mediaType = mediaType;
+    public void setMedia_type(String media_type) {
+        this.media_type = media_type;
     }
 
-    public ArrayList<Integer> getGenreIds() {
-        return genreIds;
+    public ArrayList<Integer> getGenre_ids() {
+        return genre_ids;
     }
 
-    public void setGenreIds(ArrayList<Integer> genreIds) {
-        this.genreIds = genreIds;
+    public void setGenre_ids(ArrayList<Integer> genre_ids) {
+        this.genre_ids = genre_ids;
     }
 
     public int getPopularity() {
@@ -112,36 +112,36 @@ public class MediaObject {
         this.popularity = popularity;
     }
 
-    public int getVoteAverage() {
-        return voteAverage;
+    public int getVote_average() {
+        return vote_average;
     }
 
-    public void setVoteAverage(int voteAverage) {
-        this.voteAverage = voteAverage;
+    public void setVote_average(int vote_average) {
+        this.vote_average = vote_average;
     }
 
-    public int getVoteCount() {
-        return voteCount;
+    public int getVote_count() {
+        return vote_count;
     }
 
-    public void setVoteCount(int voteCount) {
-        this.voteCount = voteCount;
+    public void setVote_count(int vote_count) {
+        this.vote_count = vote_count;
     }
 
     @Override
     public String toString() {
         return "MediaObject{" +
                 "adult=" + adult +
-                ", backdropPath='" + backdropPath + '\'' +
+                ", backdropPath='" + backdrop_path + '\'' +
                 ", id=" + id +
-                ", originalLanguage='" + originalLanguage + '\'' +
+                ", originalLanguage='" + original_language + '\'' +
                 ", overview='" + overview + '\'' +
-                ", posterPath='" + posterPath + '\'' +
-                ", mediaType='" + mediaType + '\'' +
-                ", genreIds=" + genreIds +
+                ", posterPath='" + poster_path + '\'' +
+                ", mediaType='" + media_type + '\'' +
+                ", genreIds=" + genre_ids +
                 ", popularity=" + popularity +
-                ", voteAverage=" + voteAverage +
-                ", voteCount=" + voteCount +
+                ", voteAverage=" + vote_average +
+                ", voteCount=" + vote_count +
                 '}';
     }
 }
