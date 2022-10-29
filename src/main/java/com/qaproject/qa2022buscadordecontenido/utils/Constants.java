@@ -11,4 +11,5 @@ public class Constants {
     public static final String TRENDING_DAY = "day";
     public static final String TRENDING_WEEK = "week";
     public static final String API_KEY_URL = "?api_key=" + API_KEY;
+    public static final String BASE_IMG_URL = "https://image.tmdb.org/t/p/w500/";
 }

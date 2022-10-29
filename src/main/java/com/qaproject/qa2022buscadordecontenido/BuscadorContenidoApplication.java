@@ -26,12 +26,12 @@ public class BuscadorContenidoApplication {
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
         return builder.build();
     }
-    @Bean
+    /*@Bean
     public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
         return args -> {
             TvShowResults results = restTemplate.getForObject(TRENDING_TV_URL + TRENDING_DAY + API_KEY_URL, TvShowResults.class);
             assert results != null;
             log.info(results.toString());
         };
-    }
+    }*/
 }

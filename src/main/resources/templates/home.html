@@ -13,7 +13,18 @@
 
 <div class="container">
     <div class="px-3 py-3 pt-md-8 pb-md-8 mx-auto">
-        <span>Welcome</span>
+        <span>Trending Tv Shows</span><br/>
+        <div class="card" style="width: 18rem;">
+            <img th:src="${shows[0].backdrop_path}" class="card-img-top" th:alt="${shows[0].name} + ' backdrop'">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${shows[0].name}" />
+                <p class="card-text" th:text="${shows[0].overview}"/>
+            </div>
+            <div class="card-footer text-muted">
+                Vote: <span th:text="${shows[0].vote_average} + ' '"/>
+            </div>
+        </div>
+
     </div>
 </div>
 </body>

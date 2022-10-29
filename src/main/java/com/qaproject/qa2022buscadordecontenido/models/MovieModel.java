@@ -45,7 +45,7 @@ public class MovieModel extends MediaObject{
                       @JsonProperty("id") int id, @JsonProperty("original_language") String original_language,
                       @JsonProperty("overview") String overview, @JsonProperty("poster_path") String poster_path,
                       @JsonProperty("media_type") String media_type, @JsonProperty("genre_ids") ArrayList<Integer> genre_ids,
-                      @JsonProperty("popularity") int popularity, @JsonProperty("vote_average") int vote_average,
+                      @JsonProperty("popularity") float popularity, @JsonProperty("vote_average") float vote_average,
                       @JsonProperty("vote_count") int vote_count, @JsonProperty("title") String title,
                       @JsonProperty("original_title") String original_title, @JsonProperty("release_date") String release_date,
                       @JsonProperty("video") boolean video) {

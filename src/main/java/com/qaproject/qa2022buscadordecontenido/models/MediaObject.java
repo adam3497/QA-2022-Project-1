@@ -7,6 +7,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.util.ArrayList;
 
+import static com.qaproject.qa2022buscadordecontenido.utils.Constants.BASE_IMG_URL;
+
 /**
  * MediaObject class is a parent model intended to serve as the starting point for the media type objects that are
  * gotten from the TMDB API responses
@@ -46,9 +48,9 @@ public class MediaObject {
     @JsonProperty("genre_ids")
     protected ArrayList<Integer> genre_ids;
     @JsonProperty("popularity")
-    protected int popularity;
+    protected float popularity;
     @JsonProperty("vote_average")
-    protected int vote_average;
+    protected float vote_average;
     @JsonProperty("vote_count")
     protected int vote_count;
 
@@ -60,7 +62,7 @@ public class MediaObject {
                        @JsonProperty("id") int id, @JsonProperty("original_language") String original_language,
                        @JsonProperty("overview") String overview, @JsonProperty("poster_path") String poster_path,
                        @JsonProperty("media_type") String media_type, @JsonProperty("genre_ids") ArrayList<Integer> genre_ids,
-                       @JsonProperty("popularity") int popularity, @JsonProperty("vote_average") int vote_average,
+                       @JsonProperty("popularity") float popularity, @JsonProperty("vote_average") float vote_average,
                        @JsonProperty("vote_count") int vote_count) {
         this.adult = adult;
         this.backdrop_path = backdrop_path;
@@ -84,7 +86,7 @@ public class MediaObject {
     }
 
     public String getBackdrop_path() {
-        return backdrop_path;
+        return BASE_IMG_URL + backdrop_path;
     }
 
     public void setBackdrop_path(String backdrop_path) {
@@ -116,7 +118,7 @@ public class MediaObject {
     }
 
     public String getPoster_path() {
-        return poster_path;
+        return BASE_IMG_URL + poster_path;
     }
 
     public void setPoster_path(String poster_path) {
@@ -139,7 +141,7 @@ public class MediaObject {
         this.genre_ids = genre_ids;
     }
 
-    public int getPopularity() {
+    public float getPopularity() {
         return popularity;
     }
 
@@ -147,7 +149,7 @@ public class MediaObject {
         this.popularity = popularity;
     }
 
-    public int getVote_average() {
+    public float getVote_average() {
         return vote_average;
     }
 
