@@ -37,6 +37,18 @@ public class MovieResults extends ResultsModel {
     }
 
     @JsonProperty("results")
+    public ArrayList<MovieModel> getResults(int amount) {
+        if (amount <= results.size()) {
+            ArrayList<MovieModel> truncatedMoviesResults = new ArrayList<>();
+            for (int i=0; i<amount; i++) {
+                truncatedMoviesResults.add(results.get(i));
+            }
+            return truncatedMoviesResults;
+        }
+        return results;
+    }
+
+    @JsonProperty("results")
     public void setResults(ArrayList<MovieModel> results) {
         this.results = results;
     }

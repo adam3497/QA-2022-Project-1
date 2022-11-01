@@ -69,6 +69,65 @@
 
             </div>
         </div>
+
+        <br />
+        <br />
+        <span>Trending Movies</span>
+
+        <div id="trendingMovieCarousel" class="carousel slide" data-bs-ride="true">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#trendingMovieCarousel" data-bs-slide-to="0"
+                        class="active" aria-current="true" th:aria-label="${movies[0].title}"></button>
+                <th:block th:each="movie,iterStat : ${movies}">
+                    <button type="button" data-bs-target="#trendingMovieCarousel" th:data-bs-slide-to="${iterStat.index}"
+                            th:aria-label="${movie.title}" th:if="${(iterStat.index != 0) }"></button>
+                </th:block>
+            </div>
+
+            <div class="carousel-inner" style="height: 20rem;">
+                <div class="carousel-item active">
+                    <div class="card text-bg-dark d-block w-100 h-25">
+                        <img th:src="${movies[0].backdrop_path}" class="card-img" th:alt="${movies[0].title} + ' backdrop'">
+                        <div class="card-img-overlay">
+                            <div class="overflow-scroll" style="height: 3rem;">
+                                <h5 class="card-title fw-bold" th:text="${movies[0].title}" />
+                            </div>
+                            <div class="overflow-scroll" style="height: 4rem;">
+                                <p class="card-text" th:text="${movies[0].overview}"/>
+                            </div>
+                            Vote: <span th:text="${movies[0].vote_average} + ' '"/>
+                        </div>
+                    </div>
+                </div>
+
+                <th:block th:each="movie,iterStat : ${movies}">
+                    <div class="carousel-item" th:if="${(iterStat.index != 0)}">
+                        <div class="card text-bg-dark d-block w-100 h-25">
+                            <img th:src="${movie.backdrop_path}" class="card-img" th:alt="${movie.title} + ' backdrop'">
+                            <div class="card-img-overlay">
+                                <div class="overflow-scroll" style="height: 3rem;">
+                                    <h5 class="card-title fw-bold" th:text="${movie.title}" />
+                                </div>
+                                <div class="overflow-scroll" style="height: 4rem;">
+                                    <p class="card-text" th:text="${movie.overview}"/>
+                                </div>
+                                Vote: <span th:text="${movie.vote_average} + ' '"/>
+                            </div>
+                        </div>
+                    </div>
+                </th:block>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#trendingMovieCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#trendingMovieCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+
+            </div>
+        </div>
     </div>
 </div>
 </body>
