@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Results</title>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+
+<body>
+<div th:replace="_fragments/header"></div>
+
+
+<div>
+    <h2> Resultados de busqueda para [[${keyword}]] </h2>
+    <br/>
+</div>
+
+
+<div>
+    <h2> Series </h2>
+    <br/>
+</div>
+
+<th:block th:each="show,iterStat : ${shows}">
+    <div class="card text-bg-dark d-block w-100 h-25">
+        <img th:src="${show.poster_path}" class="card-img" th:alt="${show.name} + ' poster'">
+        <div class="card-img-overlay">
+            <div class="overflow-scroll" style="height: 3rem;">
+                <h5 class="card-title fw-bold" th:text="${show.name}" />
+            </div>
+            <div class="overflow-scroll" style="height: 4rem;">
+                <p class="card-text" th:text="${show.overview}"/>
+            </div>
+            Vote: <span th:text="${show.vote_average} + ' '"/>
+        </div>
+    </div>
+</th:block>
+
+
+<div>
+    <h2> Peliculas </h2>
+    <br/>
+</div>
+
+<th:block th:each="movie,iterStat : ${movies}">
+    <div class="card text-bg-dark d-block w-100 h-25">
+        <img th:src="${movie.poster_path}" class="card-img" th:alt="${movie.title} + ' poster'">
+        <div class="card-img-overlay">
+            <div class="overflow-scroll" style="height: 3rem;">
+                <h5 class="card-title fw-bold" th:text="${movie.title}" />
+            </div>
+            <div class="overflow-scroll" style="height: 4rem;">
+                <p class="card-text" th:text="${movie.overview}"/>
+            </div>
+            Vote: <span th:text="${movie.vote_average} + ' '"/>
+        </div>
+    </div>
+</th:block>
+
+
+</div>
+
+
+
+
+
+</body>
+
+
+</html>
