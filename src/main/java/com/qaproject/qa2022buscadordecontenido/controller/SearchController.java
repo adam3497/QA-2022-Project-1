@@ -28,38 +28,50 @@ public class SearchController {
 
     @GetMapping("/search")
     public ModelAndView mediaSearch(@Param("Search") String keyword, Model model, RestTemplate restTemplate) {
+        ModelAndView mv = new ModelAndView();
 
-        System.out.printf("keyword: ", keyword);
         String uriEncodedKeyword = URLEncoder.encode(keyword, StandardCharsets.UTF_8);
-        uriEncodedKeyword = uriEncodedKeyword.replace("+","&");
-
-        model.addAttribute("keyword", keyword);
-        model.addAttribute("titulo de pagina", "Resultados de busqueda para " + keyword);
-
-
+        uriEncodedKeyword = uriEncodedKeyword.replace("+", "&");
 
         String searchTvUrl = SEARCH_TV_URL + API_KEY_URL + QUERY + uriEncodedKeyword;
         String searchMovieUrl = SEARCH_MOVIES_URL + API_KEY_URL + QUERY + uriEncodedKeyword;
 
-
-
-        log.info(searchTvUrl);
-        try {
-            TvShowResults tvShowResults = restTemplate.getForObject(searchTvUrl, TvShowResults.class);
-            ModelAndView mv = new ModelAndView();
-            assert tvShowResults != null;
-            mv.addObject("shows", tvShowResults.getResults());
-
-        log.info(searchMovieUrl);
-            MovieResults movieResults = restTemplate.getForObject(searchMovieUrl, MovieResults.class);
-            assert movieResults != null;
-            mv.addObject("movies", movieResults.getResults());
+        if (!isSearchValid(keyword)) {
+            model.addAttribute("keyword", "Busqueda invalida");
+            model.addAttribute("titulo de pagina", "Busqueda invalida");
             return mv;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
 
+        } else {
+
+            try {
+                log.info(searchTvUrl);
+                TvShowResults tvShowResults = restTemplate.getForObject(searchTvUrl, TvShowResults.class);
+                assert tvShowResults != null;
+                mv.addObject("shows", tvShowResults.getResults());
+
+                log.info(searchMovieUrl);
+                MovieResults movieResults = restTemplate.getForObject(searchMovieUrl, MovieResults.class);
+                assert movieResults != null;
+                mv.addObject("movies", movieResults.getResults());
+
+                model.addAttribute("keyword", "Resultados de busqueda para: " + keyword);
+                model.addAttribute("titulo de pagina", "Resultados de busqueda para: " + keyword);
+                model.addAttribute("Movies", "Peliculas");
+                model.addAttribute("Shows", "Series");
+                return mv;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+
+        }
+    }
+
+    public boolean isSearchValid(String string){
+        if (string.startsWith(" ")) {return false;}
+        else return !string.isEmpty();
     }
 
 }
+
