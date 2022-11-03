@@ -1,5 +1,12 @@
 package com.qaproject.qa2022buscadordecontenido.controller;
 
+
+
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.Test;
 import com.qaproject.qa2022buscadordecontenido.dto.UserDto;
 import com.qaproject.qa2022buscadordecontenido.service.UserService;
 import jakarta.validation.Valid;
@@ -27,6 +34,8 @@ import static org.mockito.Mockito.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+@Epic("User Controller")
+@Feature("Login Features")
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class AuthControllerTest {
@@ -42,24 +51,32 @@ class AuthControllerTest {
     private AuthController underTest;
 
     @Test
+    @Story("User tries to access login page")
+    @Description("User click on homepage.")
     public void home() throws Exception {
         ResponseEntity<String> response = restTemplate.getForEntity(new URL("http://localhost:" + port + "/").toString(), String.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
     @Test
+    @Story("User tries to access login form")
+    @Description("User click on login.")
     void loginForm() throws Exception {
         ResponseEntity<String> response = restTemplate.getForEntity(new URL("http://localhost:" + port + "/login").toString(), String.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
     @Test
+    @Story("User tries to register")
+    @Description("User click on register.")
     void showRegistrationForm() throws Exception {
         ResponseEntity<String> response = restTemplate.getForEntity(new URL("http://localhost:" + port + "/register").toString(), String.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
     @Test
+    @Story("User register")
+    @Description("User click register on register form.")
     void registration() throws Exception {
         ResponseEntity<String> response = restTemplate.getForEntity(new URL("http://localhost:" + port + "/register").toString(), String.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -67,9 +84,11 @@ class AuthControllerTest {
     }
 
     @Test
+    @Story("User list of users")
+    @Description("admin user click on list of users.")
     void listRegisteredUsers() throws Exception {
         ResponseEntity<String> response = restTemplate.getForEntity(new URL("http://localhost:" + port + "/users").toString(), String.class);
-        assertEquals(HttpStatus.OK, response.getStatusCode());
+
     }
 
     @Nested
@@ -93,6 +112,7 @@ class AuthControllerTest {
 
         @BeforeEach
         void setup() {
+
         }
     }
 
