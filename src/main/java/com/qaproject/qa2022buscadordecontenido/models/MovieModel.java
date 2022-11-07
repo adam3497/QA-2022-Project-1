@@ -66,7 +66,7 @@ public class MovieModel extends MediaObject{
      * @param vote_average a float that represents the score of the content 1 <= vote_average <= 10
      * @param vote_count an int that represents how many votes the content has
      * @param title a string that represents the title of the movie
-     * @param original_title a string that represents the language code
+     * @param original_title a string that represents the full original title of the movie
      * @param release_date a string that represents the date when the movie was released
      * @param video a boolean that specifies whether the movie is for adults only or not
      */
@@ -108,7 +108,7 @@ public class MovieModel extends MediaObject{
 
     /**
      * A getter method for the original_title attr
-     * @return a string that represents the code of the language
+     * @return a string that represents the full original title of the movie
      */
     @JsonProperty("original_title")
     public String getOriginal_title() {
@@ -117,7 +117,7 @@ public class MovieModel extends MediaObject{
 
     /**
      * A setter method for the original_title attr
-     * @param original_title a string that specifies the code language
+     * @param original_title a string that specifies full original title of the movie
      */
     @JsonProperty("original_title")
     public void setOriginal_title(String original_title) {
