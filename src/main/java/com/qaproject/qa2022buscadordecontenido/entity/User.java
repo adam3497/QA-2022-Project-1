@@ -9,6 +9,9 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * User entity
+ */
 @Getter
 @Setter
 @NoArgsConstructor

@@ -15,6 +15,9 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @EnableWebSecurity
 public class SpringSecurity {
+    /**
+     * The Spring Security
+     */
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -26,6 +29,9 @@ public class SpringSecurity {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        /**
+         * The Spring Security Filter Chain
+         */
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/register/**").permitAll()
@@ -48,6 +54,9 @@ public class SpringSecurity {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        /**
+         * The Spring Security Authentication Manager Builder
+         */
         auth
                 .userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder());

@@ -13,6 +13,9 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class UserDtoTest {
+    /**
+     * The User Dto Test
+     */
 
     private static final String FIRST_NAME = "FIRST_NAME";
     private static final String LAST_NAME = "LAST_NAME";
@@ -27,10 +30,14 @@ class UserDtoTest {
 
     @AfterEach
     void tearDown() {
+
     }
 
     @Test
     void getId() {
+        /**
+         * The User Dto Test getId
+         */
         //given
         underTest.setId(1L);
         //when
@@ -41,6 +48,9 @@ class UserDtoTest {
 
     @Test
     void getFirstName() {
+        /**
+         * The User Dto Test First Name
+         */
         //given
         underTest.setFirstName(FIRST_NAME);
         //when
@@ -51,6 +61,9 @@ class UserDtoTest {
 
     @Test
     void getLastName() {
+        /**
+         *  The User Dto Test Last Name
+         */
         //given
         underTest.setLastName(LAST_NAME);
         //when
@@ -61,6 +74,9 @@ class UserDtoTest {
 
     @Test
     void getEmail() {
+        /**
+         * The User Dto Test Email
+         */
         //given
         underTest.setEmail(EMAIL);
         //when
@@ -71,6 +87,9 @@ class UserDtoTest {
 
     @Test
     void getPassword() {
+        /**
+         * The User Dto Test Password
+         */
         //given
         underTest.setPassword(PASSWORD);
         //when
@@ -81,6 +100,9 @@ class UserDtoTest {
 
     @Test
     void setId() {
+        /**
+         * The User Dto Test Set Id
+         */
         //given
         underTest.setId(1L);
         //when
@@ -91,6 +113,9 @@ class UserDtoTest {
 
     @Test
     void setFirstName() {
+        /**
+         * The User Dto Test Set First Name
+         */
         //given
         underTest.setFirstName(FIRST_NAME);
         //when
@@ -101,6 +126,9 @@ class UserDtoTest {
 
     @Test
     void setLastName() {
+        /**
+         * The User Dto Test Set Last Name
+         */
         //given
         underTest.setLastName(LAST_NAME);
         //when
@@ -111,6 +139,9 @@ class UserDtoTest {
 
     @Test
     void setEmail() {
+        /**
+         * The User Dto Test Set Email
+         */
         //given
         underTest.setEmail(EMAIL);
         //when
@@ -121,6 +152,9 @@ class UserDtoTest {
 
     @Test
     void setPassword() {
+        /**
+         * The User Dto Test Set Password
+         */
         //given
         underTest.setPassword(PASSWORD);
         //when
