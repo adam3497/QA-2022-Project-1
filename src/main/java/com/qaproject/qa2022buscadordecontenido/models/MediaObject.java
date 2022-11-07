@@ -262,7 +262,7 @@ public class MediaObject {
 
     /**
      * A getter method for the vote_count attr
-     * @return a int that represents the vote count of the content
+     * @return an int that represents the vote count of the content
      */
     public int getVote_count() {
         return vote_count;
