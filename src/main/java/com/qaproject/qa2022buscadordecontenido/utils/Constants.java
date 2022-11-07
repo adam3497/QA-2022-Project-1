@@ -1,5 +1,8 @@
 package com.qaproject.qa2022buscadordecontenido.utils;
 
+/**
+ * A class with constants that are used all over the application
+ */
 public class Constants {
     // TMDB URL constants
     public static final String API_KEY = "74b8d0310806e6ab9d6542fc5047df15";
