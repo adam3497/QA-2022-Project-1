@@ -8,6 +8,10 @@ import lombok.Setter;
 
 import java.util.List;
 
+
+/**
+ * Role entity
+ */
 @Setter
 @Getter
 @NoArgsConstructor
@@ -16,13 +20,20 @@ import java.util.List;
 @Table(name="roles")
 public class Role
 {
+    /**
+     * Role id
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    /**
+     * Role name
+     */
     @Column(nullable=false, unique=true)
     private String name;
-
+    /**
+     * Role description
+     */
     @ManyToMany(mappedBy="roles")
     private List<User> users;
 }

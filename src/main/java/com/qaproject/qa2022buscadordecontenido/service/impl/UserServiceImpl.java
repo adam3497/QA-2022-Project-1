@@ -13,8 +13,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * User service implementation
+ */
 @Service
 public class UserServiceImpl implements UserService {
+    /**
+     * User repository
+     */
 
     private UserRepository userRepository;
     private RoleRepository roleRepository;
@@ -23,6 +29,9 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl(UserRepository userRepository,
                            RoleRepository roleRepository,
                            PasswordEncoder passwordEncoder) {
+        /**
+         * Constructor
+         */
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
@@ -30,6 +39,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void saveUser(UserDto userDto) {
+        /**
+         * Save user
+         * @param userDto
+         */
         User user = new User();
         user.setName(userDto.getFirstName() + " " + userDto.getLastName());
         user.setEmail(userDto.getEmail());
@@ -47,17 +60,29 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByEmail(String email) {
+        /**
+         * Find user by email
+         * @param email
+         * @return User object or null
+         */
         return userRepository.findByEmail(email);
     }
 
     @Override
     public List<UserDto> findAllUsers() {
+        /**
+         * Find all users
+         * @return List of UserDto objects
+         */
         List<User> users = userRepository.findAll();
         return users.stream().map((user) -> convertEntityToDto(user))
                 .collect(Collectors.toList());
     }
 
     private UserDto convertEntityToDto(User user){
+        /**
+         * Convert entity to dto
+         */
         UserDto userDto = new UserDto();
         String[] name = user.getName().split(" ");
         userDto.setFirstName(name[0]);
@@ -67,6 +92,9 @@ public class UserServiceImpl implements UserService {
     }
 
     private Role checkRoleExist() {
+        /**
+         * Check if role exists
+         */
         Role role = new Role();
         role.setName("ROLE_ADMIN");
         return roleRepository.save(role);

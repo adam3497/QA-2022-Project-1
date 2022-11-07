@@ -23,6 +23,9 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class UserServiceImplTest {
+    /**
+     * The User Service Impl Test
+     */
 
     @Mock
     private UserRepository userRepository;
@@ -43,6 +46,9 @@ class UserServiceImplTest {
 
     @Test
     void saveUser() {
+        /**
+         * The User Service Impl Test Save User
+         */
 
         //given
         UserDto userDto = new UserDto();
@@ -62,6 +68,9 @@ class UserServiceImplTest {
 
     @Test
     void findByEmailNonExistingUser() {
+        /**
+         * The User Service Impl Test Find By Email Non Existing User
+         */
         // given
         String username = "somenewuser";
         String password = "123queso";
@@ -77,6 +86,9 @@ class UserServiceImplTest {
 
     @Test
     void findAllUsers() {
+        /**
+         * The User Service Impl Test Find All Users
+         */
 
         List<UserDto> result = underTest.findAllUsers();
 
@@ -84,8 +96,15 @@ class UserServiceImplTest {
 
     }
 
+    /**
+     * Test Setup for Find By Email
+     */
+
     @Nested
     class WhenSavingUser {
+        /**
+         * The User Service Impl Test When Saving User
+         */
         @Mock
         private UserDto userDto;
         @Mock
@@ -106,7 +125,6 @@ class UserServiceImplTest {
 
     @Nested
     class WhenFindingByEmail {
-
 
         @BeforeEach
         void setup() {

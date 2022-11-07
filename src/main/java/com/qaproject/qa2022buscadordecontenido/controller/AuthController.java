@@ -16,26 +16,46 @@ import java.util.List;
 
 @Controller
 public class AuthController {
+    /**
+     * The User service
+     */
 
     private UserService userService;
 
     public AuthController(UserService userService) {
+        /**
+         * Constructor
+         * @param userService
+         */
         this.userService = userService;
     }
 
     @GetMapping("index")
     public String home(){
+        /**
+         * Home page
+         * @return
+         */
         return "index";
     }
 
     @GetMapping("/login")
     public String loginForm() {
+        /**
+         * Login form
+         * @return
+         */
         return "login";
     }
 
     // handler method to handle user registration request
     @GetMapping("register")
     public String showRegistrationForm(Model model){
+        /**
+         * Register form
+         * @param model
+         * @return
+         */
         UserDto user = new UserDto();
         model.addAttribute("user", user);
         return "register";
@@ -46,6 +66,13 @@ public class AuthController {
     public String registration(@Valid @ModelAttribute("user") UserDto user,
                                BindingResult result,
                                Model model){
+        /**
+         * Register user
+         * @param user
+         * @param result
+         * @param model
+         * @return
+         */
         User existing = userService.findByEmail(user.getEmail());
         if (existing != null) {
             result.rejectValue("email", null, "There is already an account registered with that email");
@@ -60,6 +87,11 @@ public class AuthController {
 
     @GetMapping("/users")
     public String listRegisteredUsers(Model model){
+        /**
+         * List users
+         * @param model
+         * @return
+         */
         List<UserDto> users = userService.findAllUsers();
         model.addAttribute("users", users);
         return "users";
