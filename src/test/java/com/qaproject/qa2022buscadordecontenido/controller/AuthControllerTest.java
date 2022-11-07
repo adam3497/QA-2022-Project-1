@@ -39,9 +39,13 @@ import java.net.URL;
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class AuthControllerTest {
+    /**
+     * The User service Test
+     */
 
     @LocalServerPort
     private int port;
+
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -54,6 +58,10 @@ class AuthControllerTest {
     @Story("User tries to access login page")
     @Description("User click on homepage.")
     public void home() throws Exception {
+        /**
+         * Home page
+         * @return
+         */
         ResponseEntity<String> response = restTemplate.getForEntity(new URL("http://localhost:" + port + "/").toString(), String.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
@@ -62,6 +70,10 @@ class AuthControllerTest {
     @Story("User tries to access login form")
     @Description("User click on login.")
     void loginForm() throws Exception {
+        /**
+         * Login form
+         * @return
+         */
         ResponseEntity<String> response = restTemplate.getForEntity(new URL("http://localhost:" + port + "/login").toString(), String.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
@@ -70,6 +82,11 @@ class AuthControllerTest {
     @Story("User tries to register")
     @Description("User click on register.")
     void showRegistrationForm() throws Exception {
+        /**
+         * Register form
+         * @param model
+         * @return
+         */
         ResponseEntity<String> response = restTemplate.getForEntity(new URL("http://localhost:" + port + "/register").toString(), String.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
@@ -78,6 +95,13 @@ class AuthControllerTest {
     @Story("User register")
     @Description("User click register on register form.")
     void registration() throws Exception {
+        /**
+         * Register
+         * @param user
+         * @param bindingResult
+         * @param model
+         * @return
+         */
         ResponseEntity<String> response = restTemplate.getForEntity(new URL("http://localhost:" + port + "/register").toString(), String.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
 
@@ -87,9 +111,18 @@ class AuthControllerTest {
     @Story("User list of users")
     @Description("admin user click on list of users.")
     void listRegisteredUsers() throws Exception {
+        /**
+         * List of users
+         * @param model
+         * @return
+         */
         ResponseEntity<String> response = restTemplate.getForEntity(new URL("http://localhost:" + port + "/users").toString(), String.class);
 
     }
+
+    /**
+     * The User service Test Setup and Tear Down
+     */
 
     @Nested
     class WhenHoming {

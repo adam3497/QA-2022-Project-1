@@ -11,16 +11,31 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+/**
+ * User Dto
+ */
 public class UserDto
 {
+    /**
+     * User id
+     */
     private Long id;
     @NotEmpty
+    /**
+     * User name
+     */
     private String firstName;
     @NotEmpty
     private String lastName;
+    /**
+     * User email
+     */
     @NotEmpty(message = "Email should not be empty")
     @Email
     private String email;
+    /**
+     * User password
+     */
     @NotEmpty(message = "Password should not be empty")
     private String password;
 }
